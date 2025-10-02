@@ -2,24 +2,24 @@ class Solution {
     public int[] findErrorNums(int[] nums) {
         int i=0;
         while(i<nums.length){
-                int correct=nums[i]-1;
-                if(nums[i]!=nums[correct]){
+            int correct=nums[i]-1;
+            if(nums[i]!=nums[correct]){
                 swap(nums,i,correct);
-                }
-                else{
-                    i++;
-                }
             }
-            for(int index=0;index<nums.length;index++){
-                if(nums[index]!=index+1){
-                    return new int []{nums[index],index+1};
+            else{
+                i++;
             }
         }
-   return new int []{-1,-1};
+            for(int dup=0;dup<nums.length;dup++){
+                if(nums[dup]!=dup+1){
+                    return new int[]{nums[dup],dup+1};
+                }
+        }
+return new int []{-1,-1};
     }
-public void swap(int []arr,int f ,int s){
-    int temp=arr[f];
-    arr[f]=arr[s];
-    arr[s]=temp;
-}
+    public void swap(int [] arr,int from ,int to){
+        int temp=arr[from];
+        arr[from]=arr[to];
+        arr[to]=temp;
+    }
 }
