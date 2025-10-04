@@ -8,13 +8,8 @@ class Solution {
         }
         List<Boolean> li=new ArrayList<>();
         for(int i=0;i<candies.length;i++){
-            if(candies[i]+extraCandies<max){
-                li.add(false);
+            li.add(candies[i]+extraCandies >= max ?true:false);
             }
-            else{
-                li.add(true);
-            }
-        }
 return li;
     }
 }
