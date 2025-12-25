@@ -1,15 +1,19 @@
 class Solution {
     public int maxArea(int[] height) {
-        int can_hold=0;
-        int start=0;
-        int end=height.length-1;
-        while(start<end){
-            can_hold=Math.max(can_hold,(end-start)*Math.min(height[start],height[end]));
-            if(height[start]<height[end]){start++;}
+        int s=0;
+        int e=height.length-1;
+        int holding=0;
+        while(s<e){
+            int width=e-s;
+            int minheight=Math.min(height[s],height[e]);
+            holding=Math.max(holding,width*minheight);
+            if(height[s]<height[e]){
+                s++;
+            }
             else{
-                end--;
+                e--;
             }
         }
-        return can_hold;
+        return holding;
     }
 }
