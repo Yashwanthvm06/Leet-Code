@@ -4,12 +4,12 @@ class Solution {
         for(int number:nums){
             ts+=number;
         }
-        int lsum=0;
+        int leftsum=0;
         for(int i=0;i<nums.length;i++){
-            if(lsum==ts-lsum-nums[i]){
+            if(leftsum==ts-leftsum-nums[i]){
                 return i;
             }
-            lsum+=nums[i];
+            leftsum+=nums[i];
         }
         return -1;
     }
